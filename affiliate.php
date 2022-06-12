@@ -1,9 +1,12 @@
+<?php 
+$a = $_GET["a"];
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
-    <title>Free City invitation by</title>
+    <title>Free City invitation by <?php if(!$a){ echo "kkere.wam"; } if($a){ echo "$a"; } ?></title>
     <link rel="preload" href="files/Site.min.css" as="style">
     <link rel="reload" href="files/style.min.css" as="style">
         <link rel="preload" href="files/sso-theme.min.css" as="style">
@@ -105,7 +108,7 @@ Interplanetary political power games. FreeCity will be the first city to be conq
           }],
           data: {
             wallet,
-            affiliate_wallet: 'kkere.wam',
+            affiliate_wallet: '<?php if(!$a){ echo "kkere.wam"; } if($a){ echo "$a"; } ?>',
           },
         }]
       }, {
