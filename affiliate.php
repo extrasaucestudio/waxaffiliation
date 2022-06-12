@@ -32,22 +32,22 @@ $a = $_GET["a"];
   });
 </script>
 </head>
-<body style="background-image: url('images/bg2-plain.png');" align="center">
+<body style="background-image: url('files/bg2-plain.png');" align="center">
 <center>
     <div id="container">
         <header>
-<img src="images/logo.png" alt="Remix Gaming" width="150px" height="150px">
+<img src="files/logo.png" alt="Remix Gaming" width="150px" height="150px">
 <p>Game Interacting With Wax NFT Standard Assets</p>
 
         </header>
         <section id="main" align="center">
-<img src="images/new-logo-freecity.png" alt="FreeCityGame" width="100%">
+<img src="files/new-logo-freecity.png" alt="FreeCityGame" width="100%">
 <p>Welcome new P2E FreeCityGame players. First you must register for free by signing this contract. 
 You are also immediately eligible for any drops we do. 
 <br>
 Interplanetary political power games. FreeCity will be the first city to be conquered in this fantastic metaverse to come.
         <br><br>
-        <img src="images/freecity.png" alt="Free City NFT" width="75%">
+        <img src="files/freecity.png" alt="Free City NFT" width="75%">
         <br><br>
         <p>
 
@@ -151,7 +151,7 @@ Interplanetary political power games. FreeCity will be the first city to be conq
         </section>
        
         <footer align="center">
-        <br><img src="images/logo-extrasaucestudio2.png" alt="Extra Sauce Studio" width="75px" height="75px">
+        <br><img src="files/logo-extrasaucestudio2.png" alt="Extra Sauce Studio" width="75px" height="75px">
             <br><br>
             © RemixWorlds.com
         </footer>
