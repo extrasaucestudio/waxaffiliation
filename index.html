@@ -41,21 +41,18 @@ const affiliate_wallet = url.searchParams.get("ref") || 'kkere.wam';
 <img src="files/waxaffiliation-logo.png" alt="WaxAffiliation" width="75%"><br>
 <p>Affiliate Program Based on WAX Game</p>
 <br>
-<img src="files/waxaffiliation-enter.png" alt="" width="25%"><br>
+<script>
+  document.write('<a href="affiliation.html?ref=');
+  document.write(ref);
+  document.write('"><img src="files/waxaffiliation-enter.png" alt="" width="25%"></a>');
+  </script>
+<br>
 <br>
 
 
         <footer align="center">
           © WaxAffiliation.io<br><img src="files/wax.svg" alt="WAX" width="35px" height="35px">
-          <!--
-            <script>
-            document.write('<p>© WaxAffiliation.io | <a href="https://wax.bloks.io/account/');
-            document.write(ref);
-            document.write('" target="_blank">');
-            document.write(ref);
-            document.write('</a></p>');
-            </script>
-          -->
+                
             
         </footer>
     </div>
