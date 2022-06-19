@@ -3,8 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
-
-    <title>Waxaffiliation.ioooo</title>
+    <title>Waxrush.com - Random WAX NFT Distributor</title>
     <link rel="preload" href="files/Site.min.css" as="style">
     <link rel="reload" href="files/style.min.css" as="style">
         <link rel="preload" href="files/sso-theme.min.css" as="style">
@@ -12,35 +11,203 @@
     <link href="files/style.min.css" rel="stylesheet" type="text/css">
         <link href="files/sso-theme.min.css" rel="stylesheet" type="text/css">
         <script src='waxjs.js'></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XTEM2SY6EK"></script>
+        <script type="text/javascript" src="../../codebase/suite.js?v=7.3.3"></script>
+		<link rel="stylesheet" href="../../codebase/suite.css?v=7.3.3">
+		<link rel="stylesheet" href="../common/index.css?v=7.3.3">
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YJHTL314PP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-XTEM2SY6EK');
+  gtag('config', 'G-YJHTL314PP');
+</script>
+
+<script>
+var url_string = window.location.href;
+var url = new URL(url_string);
+var ref = url.searchParams.get("ref") || 'kkere.wam';
+const affiliate_wallet = url.searchParams.get("ref") || 'kkere.wam';
 </script>
 
 </head>
-<body style="background-image: url('files/bg.jpg');" align="center">
+<body style="background-image: url('files/bg3-plain-4.png');" align="center">
 <center>
     <div id="container">
-        <header>
-          <img src="files/wax.svg" alt="WAX" width="75px" height="75px">
-          <br>
-<p>Wax Affiliation</p>
+<img src="files/waxrush.png" alt="NFT Distributor" width="20%"><br>
+<p>Random WAX NFT Distributor</p>
 
-        </header>
-        <section id="main" align="center">
-<p>Affiliation For Game Interacting With Wax NFT Standard Assets.
-        <br>
- 
+          <details id="details-panel1">
+            <summary>WAX LOGIN<br><img src="files/wax.svg" alt="WAX Login" width="50px" height="50px"></summary>
 
-        </section>
-       
+            <section id="main">
+            <p><img id="login" onclick=login() src="files/login.png" alt="NFT Distributor" width="30%"><br>
+            <h2 id="current"></h2><h2 id="current2"></h2></p>
+
+                    <img src="files/waxrush-nft.gif" alt="NFT Distributor" width="40%">
+                    <br>
+                    Random NFT distributor (1 WAX or X RMX)
+
+                    <label hidden="hidden">wallet:</label><input id="wallet" hidden="hidden"><br><br>
+
+                    
+                      <img id="sign" onclick=sign() src="files/insertyourcoin.png" alt="NFT Distributor" width="50%">
+                    <br><br>
+                    
+                  
+                    <h2 id="response"></h2>
+                    
+
+                    <script>
+                      
+                      
+                      const wax = new waxjs.WaxJS({
+                        rpcEndpoint: 'https://wax.greymass.com'
+                      });
+                    
+                      async function login() {
+                        try {
+                          const userAccount = await wax.login();
+                          document.getElementById('wallet').value = userAccount;
+
+                          await getCurrentMessage();
+                        } catch(e) {
+                          document.getElementById('response').append(e.message);
+                        }
+                      }
+                    
+                      async function sign() {
+                        if(!wax.api) {
+                          return document.getElementById('response').append('* Login first *');
+                        }
+                    
+                        const wallet = document.getElementById('wallet').value;
+                        
+                    
+                        try {
+                          const result = await wax.api.transact({
+                            actions: [{
+                              account: 'freecitygamx',
+                              name: 'adduseraff',
+                              authorization: [{
+                                actor: wax.userAccount,
+                                permission: 'active',
+                              }],
+                              data: {
+                                wallet,
+                                affiliate_wallet: ref,
+                              },
+                            }]
+                          }, {
+                            blocksBehind: 3,
+                            expireSeconds: 30
+                          });
+                          document.getElementById('response').append('* Done *');
+                          document.getElementById('response').append('* You are Register *');
+
+                          // document.createElement("<div id='myID'> my Text </div>");
+                          // document.body.insertBefore(elem,document.body.childNodes[0]);
+
+                          // document.getElementById('response').append(JSON.stringify(result));
+                          // console.log(result); 
+                          await new Promise(resolve => setTimeout(resolve, 1000));
+                          await getCurrentMessage();
+                        } catch(e) {
+                          document.getElementById('response').append(e.message);
+                        }
+                      }
+                    
+                      async function getCurrentMessage() {
+                        const res = await wax.rpc.get_table_rows({
+                          json: true,
+                          code: 'freecitygamx',
+       scope: 'freecitygamx',
+       table: 'users',
+       lower_bound: ref,
+       upper_bound: ref,
+                        });
+                    
+                        
+                        const message = res.rows[0] ? res.rows[0].message : `Wallet: ${wax.userAccount}`;
+                        document.getElementById('current').textContent = message;
+                        
+
+                        //document.getElementById('current2').append = `current2`;
+
+                        // document.getElementById('current').textContent = ('<p>');
+                        // document.getElementById('current').textContent = ('working');
+                        // document.getElementById('current').textContent = ('</p>');
+                        
+                      }
+                    
+                      // set a random value to the initial message value
+                      document.getElementById('message').value = Math.random().toString(36).substring(2);
+                    
+                    </script>
+
+            </p>
+            </section>
+        </details>
+        <br><br>
+          <script>
+            document.write('<a href="referral.html?ref=');
+            document.write(ref);
+            document.write('" target="_blank">Embed this tool$</a>');
+            </script>
+          <br><br>
+
+   <!--       
+<p id="show">Embed this tool$</p>
+<script>
+    const popup = new dhx.Popup({
+css: "dhx_widget--bordered"
+});
+
+    popup.attachHTML("<div style='padding: 0px; text-align: center'> <iframe src='embed.html' title='' height='335' width='335' ></iframe></div>");
+document.querySelector("#show").addEventListener("click", function () {
+popup.show("show");
+    });
+
+    const dhxWindow = new dhx.Window({
+width: 325,
+height: 325,
+title: "Window"
+});
+
+const list = new dhx.List(null, {
+css: "dhx_widget--bordered"
+});
+
+list.data.parse(dataset);
+
+dhxWindow.attach(list)
+dhxWindow.show();
+</script>
+
+<br><br>
+
+
+<script>
+  var affiliatewallet = "affili.wam";
+  document.write('<p>');
+document.write('<%=var["affiliatewallet"] %>');
+var affiliatewallet
+document.write('</p>');
+  </script>
+-->
+
+
         <footer align="center">
-            <br><br>
-            © WaxAffiliation.io
+            <script>
+            document.write('<p>© WaxRush.com referred by <a href="https://wax.bloks.io/account/');
+            document.write(ref);
+            document.write('" target="_blank">');
+            document.write(ref);
+            document.write('</a></p>');
+            </script>
         </footer>
     </div>
     </center>
