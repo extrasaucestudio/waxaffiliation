@@ -107,11 +107,8 @@ dhxWindow.show();
 -->
 
 
-<!-- (A) HTML CONTAINER -->
 
-<input type="button" value="AJAX Load" onclick="aload();"/>
- <div id="container2"></div>
- 
+
 <!-- (B) AJAX LOAD -->
 <script>
 function aload () {
@@ -122,7 +119,21 @@ function aload () {
   })
 }
 </script>
+<script>
+  function aload () {
+    fetch("contents2.html")
+    .then(res=>res.text())
+    .then((txt) => {
+      document.getElementById("container3").innerHTML = txt;
+    })
+  }
+  </script>
 
+<!-- (A) HTML CONTAINER -->
+
+<input type="button" value="AJAX Load" onclick="aload();"/>
+ <div id="container2"></div>
+ <div id="container3"></div>
 
 
         <footer align="center">
