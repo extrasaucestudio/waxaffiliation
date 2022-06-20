@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <!-- (A) HTML CONTAINER -->
+<div id="container"></div>
+<input type="button" value="Load Data" onclick="aload();"/>
+ 
+<!-- (B) AJAX LOAD JSON DATA -->
+<script>
+function aload () {
+  // (B1) AJAX LOAD JSON DATA
+  fetch("dummy.json")
+  .then(res=>res.json())
+  .then((data) => {
+    // (B2) BUILD HTML TABLE WITH THE GIVEN DATA
+    var table = "<table>";
+    for (let person of data) {
+      table += "<tr>";
+      table += "<td>" + person.name + "</td>";
+      table += "<td>" + person.email + "</td>";
+      table += "</tr>";
+    }
+    table += "</table>";
+    document.getElementById("container").innerHTML = table;
+  });
+}
+</script>
+    </body>
+</html>
