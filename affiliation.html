@@ -56,127 +56,9 @@ const affiliate_wallet = url.searchParams.get("ref") || 'kkere.wam';
             <br><br>
             <p>1 - Login with your WAX wallet.</p>
             <br>
-            <p><img id="login" onclick=login() src="files/login.png" alt="NFT Distributor" width="30%"></p>
-              <br>
-            <h2 id="current"></h2>
-       
-            <br><hr><br>
-            <p>2 - Sign this contract to register in the affiliate database (<a href="https://wax.bloks.io/account/freecitygamx?loadContract=true&tab=Tables&account=freecitygamx" target="_blank">smart contract</a>) and generate your html iframe code to use.
-          </p>
-            <br>
-            <img id="sign" onclick=sign() src="files/signup.png" alt="NFT Distributor" width="50%">
-            <br><br>
-
-            <h2 id="response2"></h2>
-            <br>
-            <h2 id="response3"></h2>
-            <p id="response"></p><br>
-            <h2 id="response4"></h2>
-            <p id="response5"></p>
-            <p id="response6"></p>
-            <p id="response7"></p>
             
 
-
-
-                    <label hidden="hidden">wallet:</label><input id="wallet" hidden="hidden">
-
-                    
-                    
-                    <script>
-                      const wax = new waxjs.WaxJS({
-                        rpcEndpoint: 'https://wax.greymass.com'
-                      });
-                    
-                      async function login() {
-                        try {
-                          const userAccount = await wax.login();
-                          document.getElementById('wallet').value = userAccount;
-
-                          await getCurrentMessage();
-                        } catch(e) {
-                          document.getElementById('response').append(e.message);
-                        }
-                      }
-                    
-                      async function sign() {
-                        if(!wax.api) {
-                          return document.getElementById('response').append('* Login first *');
-                        }
-                    
-                        const wallet = document.getElementById('wallet').value;
-                        
-                    
-                        try {
-                          const result = await wax.api.transact({
-                            actions: [{
-                              account: 'freecitygamx',
-                              name: 'adduseraff',
-                              authorization: [{
-                                actor: wax.userAccount,
-                                permission: 'active',
-                              }],
-                              data: {
-                                wallet,
-                                affiliate_wallet: ref,
-                              },
-                            }]
-                          }, {
-                            blocksBehind: 3,
-                            expireSeconds: 30
-                          });
-                          document.getElementById('response2').append('You are register, Welcome :)');
-                          document.getElementById('response3').append('Direct link:');
-                          document.getElementById('response').append(`https://waxrush.com/?ref=${wax.userAccount}`);
-                          document.getElementById('response4').append('iFrame:');
-                          
-
-                          document.getElementById('response5').append('<!-- waxrush html code start -->');
-                          document.getElementById('response6').append(`<iframe src="https://waxrush.com/?ref=${wax.userAccount}" height="325" width="325" ></iframe>`);
-                          document.getElementById('response7').append('<!-- waxrush html code start -->');
-
-                          // document.getElementById('response').append(wax.userAccount);
-
-                          // document.createElement("<div id='myID'> my Text </div>");
-                          // document.body.insertBefore(elem,document.body.childNodes[0]);
-
-                          // document.getElementById('response').append(JSON.stringify(result));
-                          // console.log(result); 
-                          await new Promise(resolve => setTimeout(resolve, 1000));
-                          await getCurrentMessage();
-                        } catch(e) {
-                          document.getElementById('response').append(e.message);
-                        }
-                      }
-                    
-                      async function getCurrentMessage() {
-                        const res = await wax.rpc.get_table_rows({
-                          json: true,
-                          code: 'freecitygamx',
-       scope: 'freecitygamx',
-       table: 'users',
-       lower_bound: ref,
-       upper_bound: ref,
-                        });
-                    
-                        
-                        const message = res.rows[0] ? res.rows[0].message : `Wallet: ${wax.userAccount}`;
-                        document.getElementById('current').textContent = message;
-                        
-                        //document.getElementById('current2').append = `current2`;
-
-                        // document.getElementById('current').textContent = ('<p>');
-                        // document.getElementById('current').textContent = ('working');
-                        // document.getElementById('current').textContent = ('</p>');
-                        
-                      }
-                    
-                      // set a random value to the initial message value
-                      document.getElementById('message').value = Math.random().toString(36).substring(2);
-                    
-                    </script>
-
-            </p>
+            
             </section>
         
         <br><br> 
@@ -193,7 +75,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'kkere.wam';
           <br><br>
 
 
-
+<!--
           <p id="show">Smart Contract</p>
 <script>
     const popup = new dhx.Popup({
@@ -221,7 +103,7 @@ dhxWindow.attach(list)
 dhxWindow.show();
 </script>
 
-<!--
+
 -->
 
         <footer align="center">
