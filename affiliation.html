@@ -106,10 +106,11 @@ dhxWindow.show();
 
 -->
 
-
-
-
-<!-- (B) AJAX LOAD -->
+<table>
+  <tr>
+    <th>
+<input type="button" value="Menu 1" onclick="aload();"/>
+<div id="container2"></div>
 <script>
 function aload () {
   fetch("contents.html")
@@ -119,6 +120,13 @@ function aload () {
   })
 }
 </script>
+    </th>
+  </tr>
+
+  <tr>
+    <th>
+ <input type="button" value="Menu 2" onclick="aload();"/>
+ <div id="container3"></div>
 <script>
   function aload () {
     fetch("contents2.html")
@@ -128,13 +136,20 @@ function aload () {
     })
   }
   </script>
+    </th>
+  </tr>
+</table>
 
-<!-- (A) HTML CONTAINER -->
 
-<input type="button" value="Menu 1" onclick="aload();"/>
- <div id="container2"></div>
- <input type="button" value="Menu 2" onclick="aload();"/>
- <div id="container3"></div>
+
+
+
+
+
+
+
+
+
 
 
         <footer align="center">
