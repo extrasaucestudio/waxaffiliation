@@ -44,6 +44,35 @@ const affiliate_wallet = url.searchParams.get("ref") || 'kkere.wam';
             <section id="main">
               
                 <img src="files/wax.svg" alt="WAX Login" width="50px" height="50px">
+
+                <div class="mainwrapper">
+                  <div class="navbox" id="js-navigation">
+                    <a href="contents.html">111</a>
+                    <a href="contents2.html">222</a>
+                  </div>
+                
+                  <div id="header"></div>
+                
+                  <div id="js-content">
+                    <!-- content will be loaded here -->
+                  </div>
+                </div>
+                
+                <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+                <script>
+                  $(document).ready(function() {
+                    $('#js-content').load('contents.html');
+                
+                    $('#js-navigation a').click(function(e) {
+                      e.preventDefault();
+                      $("#js-content").load(e.target.href);
+                    })
+                  });
+                </script>
+
+
+
+
                 <p>
                 Embed the distributor in your website/dApp or your 
                 streaming profil like Twitch and earn 5% of all WAX/RMX spended by users playing from there. 
@@ -109,30 +138,10 @@ dhxWindow.show();
 <table>
   <tr>
     <th>
-<input type="button" value="Menu 1" onclick="aload();"/>
-<div id="container2"></div>
-<script>
-function aload () {
-  fetch("contents.html")
-  .then(res=>res.text())
-  .then((txt) => {
-    document.getElementById("container2").innerHTML = txt;
-  })
-}
-</script>
+xxx
     </th>
 <th>
-<input type="button" value="Menu 2" onclick="aload();"/>
- <div id="container3"></div>
-<script>
-  function aload () {
-    fetch("contents2.html")
-    .then(res=>res.text())
-    .then((txt) => {
-      document.getElementById("container3").innerHTML = txt;
-    })
-  }
-  </script>
+xxx
 </th>
   </tr>
 
@@ -140,7 +149,7 @@ function aload () {
 
   <tr>
     <th>
- 
+ xxx
     </th>
   </tr>
 </table>
