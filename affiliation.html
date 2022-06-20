@@ -106,6 +106,28 @@ dhxWindow.show();
 
 -->
 
+
+<!-- (A) HTML PARAGRAPHS -->
+<p id="first">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+</p>
+<p id="second">
+  Vivamus semper eleifend lectus, sed faucibus massa cursus a.
+</p>
+ 
+<!-- (B) REPLACE HTML -->
+<script>
+window.addEventListener("load", () => {
+  // (B1) REPLACE THE ENTIRE <P> ELEMENT WITH <STRONG>
+  var first = document.getElementById("first");
+  first.outerHTML = "<strong>FOO BAR!</strong>";
+
+  // (B2) WILL STILL BE A <P>, BUT CONTENT WILL BE CHANGED.
+  var second = document.getElementById("second");
+  second.innerHTML = "<u>FOO</u> <i>BAR</i>";
+});
+</script>
+
         <footer align="center">
           <p>
           © WaxAffiliation.io referred by 
