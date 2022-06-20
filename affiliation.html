@@ -107,26 +107,22 @@ dhxWindow.show();
 -->
 
 
-<!-- (A) HTML PARAGRAPHS -->
-<p id="first">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-</p>
-<p id="second">
-  Vivamus semper eleifend lectus, sed faucibus massa cursus a.
-</p>
+<!-- (A) HTML CONTAINER -->
+<div id="container2"></div>
+<input type="button" value="AJAX Load" onclick="aload();"/>
  
-<!-- (B) REPLACE HTML -->
+<!-- (B) AJAX LOAD -->
 <script>
-window.addEventListener("load", () => {
-  // (B1) REPLACE THE ENTIRE <P> ELEMENT WITH <STRONG>
-  var first = document.getElementById("first");
-  first.outerHTML = "<strong>FOO BAR!</strong>";
-
-  // (B2) WILL STILL BE A <P>, BUT CONTENT WILL BE CHANGED.
-  var second = document.getElementById("second");
-  second.innerHTML = "<u>FOO</u> <i>BAR</i>";
-});
+function aload () {
+  fetch("contents.html")
+  .then(res=>res.text())
+  .then((txt) => {
+    document.getElementById("container2").innerHTML = txt;
+  })
+}
 </script>
+
+
 
         <footer align="center">
           <p>
