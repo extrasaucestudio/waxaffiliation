@@ -101,7 +101,6 @@ function getProducers() {
             <td>${prod.affiliate_wallet}</td>
             <td><a href="https://wax.bloks.io/account/${prod.wallet}" target="_blank">${prod.wallet}</a></td>
             
-            <td>${prod.total_vote}</td>
             <td>${prod.next_reward}</td>
             
         </tr>
