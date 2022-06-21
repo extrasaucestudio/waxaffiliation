@@ -98,11 +98,12 @@ function getProducers() {
         sorted.map((prod, i) => `
         <tr class="prod-row">
             <td>${i+1}</td>
+            <td>${prod.affiliate_wallet}</td>
             <td><a href="https://wax.bloks.io/account/${prod.wallet}" target="_blank">${prod.wallet}</a></td>
             
             <td>${prod.total_vote}</td>
             <td>${prod.next_reward}</td>
-            <td>${prod.affiliate_wallet}</td>
+            
         </tr>
         `)
         .forEach(row => tbody.innerHTML += row);
