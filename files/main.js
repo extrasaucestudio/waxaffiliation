@@ -94,7 +94,7 @@ function getProducers() {
     tbody.innerHTML = '';
 
     return eos.getTableRows(params).then(resp => {
-        var sorted = resp.rows.sort((a,b) => Number(a.wallet) > Number(b.affiliate_wallet) ? -1:1);
+        var sorted = resp.rows.sort((a,b) => Number(a.affiliate_wallet) > Number(b.wallet) ? -1:1);
         sorted.map((prod, i) => `
         <tr class="prod-row">
             <td>${i+1}</td>
