@@ -86,8 +86,8 @@ function getProducers() {
         scope: "freecitygamx",
         code: "freecitygamx",
         table: "users", 
-        lower_bound: "waxioiopos11",
-        upper_bound: "waxioiopos11",
+        // lower_bound: "waxioiopos11",
+        // upper_bound: "waxioiopos11",
         limit: 500
     }
     var tbody = document.querySelector("#block-producers tbody");
