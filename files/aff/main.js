@@ -94,11 +94,11 @@ function getProducers() {
     tbody.innerHTML = '';
 
     return eos.getTableRows(params).then(resp => {
-        var sorted = resp.rows.sort((a,b) => Number(a.total_vote) > Number(b.total_vote) ? -1:1);
+        var sorted = resp.rows.sort((a,b) => Number(a.affiliate_wallet) > Number(b.affiliate_wallet) ? -1:1);
         sorted.map((prod, i) => `
         <tr class="prod-row">
             <td>${i+1}</td>
-            <td><a href="https://wax.bloks.io/account/${prod.wallet}" target="_blank">${prod.wallet}</a></td>
+            <td><a href="https://wax.bloks.io/account/${prod.wallet}" target="_blank">${prod.wallet}</a>yyy</td>
             
             <td>${prod.total_vote}</td>
             <td>${prod.next_reward}</td>
