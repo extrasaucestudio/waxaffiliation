@@ -100,6 +100,7 @@ function getProducers() {
             
             <td>${prod.total_vote}</td>
             <td>${prod.next_reward}</td>
+            <td>${prod.affiliate_wallet}</td>
         </tr>
         `)
         .forEach(row => tbody.innerHTML += row);
