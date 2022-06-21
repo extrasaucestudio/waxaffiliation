@@ -37,7 +37,7 @@ function toggleKeyInput () {
 function filterProds () {
     var search = document.getElementById('filter-prods').value;
     document.querySelectorAll('.prod-row').forEach(function (row) {
-        if (search === "kk")
+        if (search === "")
             row.style.display = "table-row";
         else if (row.childNodes[3].textContent.indexOf(search) > -1)
             row.style.display = "table-row";
