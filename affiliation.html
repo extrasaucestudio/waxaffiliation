@@ -11,11 +11,15 @@
     <link href="files/style.min.css" rel="stylesheet" type="text/css">
         <link href="files/sso-theme.min.css" rel="stylesheet" type="text/css">
         <script src='waxjs.js'></script>
-        <script type="text/javascript" src="../../codebase/suite.js?v=7.3.3"></script>
-		<link rel="stylesheet" href="../../codebase/suite.css?v=7.3.3">
-		<link rel="stylesheet" href="../common/index.css?v=7.3.3">
+        <!--
+          <script type="text/javascript" src="files/codebase/suite.js?v=7.3.3"></script>
+		<link rel="stylesheet" href="files/codebase/suite.css?v=7.3.3">
+		<link rel="stylesheet" href="files/index.css?v=7.3.3">
+        -->
+        
 
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="files/main.css">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVSCP5XW3H"></script>
 <script>
@@ -44,6 +48,18 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
             <section id="main">
               
                 <img src="files/wax.svg" alt="WAX Login" width="50px" height="50px">
+                <br><br>
+                <script>
+                  document.write('<a href="affiliation.html/?ref=');
+                  document.write(ref);
+                  document.write('">Home</a>');
+                  </script> - 
+                  <script>
+                    document.write('<a href="affiliate.html/?ref=');
+                    document.write(ref);
+                    document.write('">Players Listing</a>');
+                    </script>
+                    <br><br>
                 <p>
                 Embed the distributor in your website/dApp or your 
                 streaming profil like Twitch and earn 5% of all WAX/RMX spended by users playing from there. 
@@ -77,11 +93,47 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
             <p id="response7"></p>
             
 
+            <br><br>
 
+            <div hidden="hidden" class="form-group">
+              <label for="eos-account"><strong>Network</strong></label>
+              <select onchange="getProducers()" class="form-control" id="network">
+                  <option value="https://api.hivebp.io">WAX Mainnet</option>
+              </select>
+            </div>
+            <div hidden="hidden" class="form-group">
+              <label for="eos-account"><strong>Account Name</strong></label>
+              <input id="eos-account" class="form-control" placeholder="EOS Account">
+            </div>
+            <div hidden="hidden" class="form-group">
+              <input type="radio" name="signing-method" onchange="toggleKeyInput()" value="key" checked>
+              <label>Private Key</label>
+              <input id="private-key" class="form-control" placeholder="Private key">
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="search" id="filter-prods" class="form-control" placeholder="Filter Players" onkeyup="filterProds()">
+            </div>
+            <table id="block-producers" class="table">
+              <thead><tr>
+                  <th>#</th>
+                  <th>Affiliates</th>
+                  <th>Players</th>
+                  <th>RMX/24h</th>
+                  </tr>
+                  
+            
+              </thead>
+              <tbody>
+                  
+              </tbody>
+            </table>
+            <script src="files/eosjs-browser.js"></script>
+<script src="files/main.js"></script>
 
                     <label hidden="hidden">wallet:</label><input id="wallet" hidden="hidden">
 
-                    
+                    xxx
                     
                     <script>
                       const wax = new waxjs.WaxJS({
@@ -176,20 +228,13 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                     
                     </script>
 
-            </p>
-            </section>
+</p>
+</section>
+            
+
         
         <br><br> 
-        <script>
-          document.write('<a href="/?ref=');
-          document.write(ref);
-          document.write('">Home</a>');
-          </script> - 
-          <script>
-            document.write('<a href="https://waxaffiliation.io/?ref=');
-            document.write(ref);
-            document.write('">More tool$ on WaxAffiliation.io</a>');
-            </script>
+        
           <br><br>
 
 
@@ -200,7 +245,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
 css: "dhx_widget--bordered"
 });
 
-    popup.attachHTML("<div style='padding: 0px; text-align: center'> <iframe src='https://wax.bloks.io/account/freecitygamx?loadContract=true&tab=Tables&account=freecitygamx' title='' height='450' width='335' ></iframe></div>");
+    popup.attachHTML("<div style='padding: 0px; text-align: center'> <iframe src='aff.html' title='' height='450' width='335' ></iframe></div>");
 document.querySelector("#show").addEventListener("click", function () {
 popup.show("show");
     });
@@ -223,6 +268,13 @@ dhxWindow.show();
 
 
 -->
+
+
+
+
+<br><br>
+
+
         <footer align="center">
           <p>
           © WaxAffiliation.io referred by 
