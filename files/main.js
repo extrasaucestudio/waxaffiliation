@@ -91,18 +91,19 @@ function getProducers() {
         limit: 500
     }
     var tbody = document.querySelector("#block-producers tbody");
-    tbody.innerHTML = ref;
+    tbody.innerHTML = "";
 
     return eos.getTableRows(params).then(resp => {
-        var sorted = resp.rows.sort((b,a) => Number(a.affiliate_wallet) > Number(b.total_vote) ? -1:1);
+        var sorted = resp.rows.sort((b,a) => Number(a.total_vote) > Number(b.affiliate_wallet) ? -1:1);
         sorted.map((prod, i) => `
         <tr class="prod-row">
             <td>${i+1}</td>
-            <td>${prod.affiliate_wallet}</td>
+            
+            <td><a href="https://wax.bloks.io/account/${prod.affiliate_wallet}" target="_blank">${prod.affiliate_wallet}</a></td>
+            
             <td><a href="https://wax.bloks.io/account/${prod.wallet}" target="_blank">${prod.wallet}</a></td>
-            
-            <td>${prod.next_reward}</td>
-            
+            <td><a href="https://wax.alcor.exchange/trade/rmx-remixgamingx_wax-eosio.token" target="_blank">${prod.next_reward}</a></td>
+                        
         </tr>
         `)
         .forEach(row => tbody.innerHTML += row);
