@@ -44,22 +44,23 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
     <div id="container">
       <img src="files/waxaffiliation-logo.png" alt="WaxAffiliation" width="50%"><br>
       <p>Affiliate Program Based on WAX Game</p>
+      
+      <script>
+        document.write('<a href="affiliation.html?ref=');
+        document.write(ref);
+        document.write('">Home</a>');
+        </script> - 
+        <script>
+          document.write('<a href="affiliate.html?ref=');
+          document.write(ref);
+          document.write('">Players Listing</a>');
+          </script>
+          <br><br>
 
             <section id="main">
               
                 <img src="files/wax.svg" alt="WAX Login" width="50px" height="50px">
-                <br><br>
-                <script>
-                  document.write('<a href="affiliation.html?ref=');
-                  document.write(ref);
-                  document.write('">Home</a>');
-                  </script> - 
-                  <script>
-                    document.write('<a href="affiliate.html?ref=');
-                    document.write(ref);
-                    document.write('">Players Listing</a>');
-                    </script>
-                    <br><br>
+                <br>
                 <p>
                 Embed the distributor in your website/dApp or your 
                 streaming profil like Twitch and earn 5% of all WAX/RMX spended by users playing from there. 
