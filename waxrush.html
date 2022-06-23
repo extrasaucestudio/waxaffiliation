@@ -59,14 +59,20 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
               
             <img src="files/wax.svg" alt="WAX Login" width="50px" height="50px">
             <p>
+              WaxRush is a mini distributor tool that provides random NFTs for 1 WAX. This tool is easily 
+              embedable with iframe in other website/application or Twitch profile for example. 
+              <br>
+              You will earn a 5% of each transaction on each user coming from you.
+              <br><br>
             Embed the distributor in your website/dApp or your 
-            streaming profil like Twitch and earn 5% of all WAX/RMX spended by users playing from there. 
+            streaming profil like Twitch and earn 5% of all WAX/RMX spended by users playing 
+            from there. 
             <br><br>
             <strong>See an example of the result</strong>
             <script>
               document.write('<iframe src="https://waxrush.com/?ref=');
               document.write(ref);
-              document.write('" height="400" width="100%" ></iframe>');
+              document.write('" height="500" width="100%" ></iframe>');
               </script>
         </p>
           
@@ -153,7 +159,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                       
 
                       document.getElementById('response5').append('<!-- waxrush html code start -->');
-                      document.getElementById('response6').append(`<iframe src="https://waxrush.com/?ref=${wax.userAccount}" height="325" width="325" ></iframe>`);
+                      document.getElementById('response6').append(`<iframe src="https://waxrush.com/?ref=${wax.userAccount}" height="500px" width="100%" ></iframe>`);
                       document.getElementById('response7').append('<!-- waxrush html code start -->');
 
                       // document.getElementById('response').append(wax.userAccount);
