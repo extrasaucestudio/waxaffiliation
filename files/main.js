@@ -102,8 +102,7 @@ function getProducers() {
             <td><a href="https://wax.bloks.io/account/${prod.affiliate_wallet}" target="_blank">${prod.affiliate_wallet}</a></td>
             
             <td><a href="https://wax.bloks.io/account/${prod.wallet}" target="_blank">${prod.wallet}</a></td>
-            <td><a href="https://wax.alcor.exchange/trade/rmx-remixgamingx_wax-eosio.token" target="_blank">${prod.next_reward}</a></td>
-                        
+                      
         </tr>
         `)
         .forEach(row => tbody.innerHTML += row);
