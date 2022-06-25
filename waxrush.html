@@ -169,7 +169,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                       await new Promise(resolve => setTimeout(resolve, 1000));
                       await getCurrentMessage();
                     } catch(e) {
-                      document.getElementById('response').append(e.message);
+                      document.getElementById('response').append('* Expired Transaction *');
                     }
                   }
                 
@@ -179,8 +179,8 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                       code: 'freecitygamx',
    scope: 'freecitygamx',
    table: 'users',
-   lower_bound: ref,
-   upper_bound: ref,
+   lower_bound: wax.userAccount,
+   upper_bound: wax.userAccount,
                     });
                 
                     
