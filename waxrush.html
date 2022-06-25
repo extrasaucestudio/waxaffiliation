@@ -187,7 +187,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                     const message = res.rows[0] ? res.rows[0].message : `Wallet: ${wax.userAccount}`;
                     document.getElementById('current').textContent = message;
                     
-                    document.getElementById('current2').append = `${wax.userAccount}`;
+                    document.getElementById('current2').append(wax.userAccount);
 
                     // document.getElementById('current').textContent = ('<p>');
                     // document.getElementById('current').textContent = ('working');
