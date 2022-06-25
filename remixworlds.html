@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
-    <title>WaxAffiliation.io - WaxRush.com</title>
+    <title>WaxAffiliation.io - RemixWorlds.com</title>
     <link rel="preload" href="files/Site.min.css" as="style">
     <link rel="reload" href="files/style.min.css" as="style">
         <link rel="preload" href="files/sso-theme.min.css" as="style">
@@ -59,17 +59,15 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
               
             <img src="files/wax.svg" alt="WAX Login" width="50px" height="50px">
             <p>
-              WaxRush is a mini distributor tool from RemixWorlds and that provides random NFTs for 1 WAX. This tool is easily 
-              embedable with iframe or direct link in other website/dApp or your streaming profil like Twitch for example. 
+              Remixworlds is a multi-game platform based on WAX NFT and its own token the RMX. 
+                It therefore has its own economy based on the long term with on the one hand the 
+                players who claim the RMX every day and on the other hand multiple mini games and 
+                ways to use the RMX.
               <br><br>
-              You will earn 5% of all WAX spended by users playing from iframe or direct link. 
-              <br><br>
-              Your share is sent to your wallet in real time for each NFT purchased and each future NFT 
-              purchased by these players.
-              <br><br>
-
-            <strong>See an example of the result</strong>
-            <iframe src="https://waxrush.com/?ref=waxaffiliate" height="500" width="100%" ></iframe>
+              You will earn 5% in real time for each RMX claimed by playing referred by you. 
+             
+            
+            
             
         </p>
           
@@ -88,15 +86,10 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
         <br>
         <img id="sign" onclick=sign() src="files/waxaff-generate.png" alt="NFT Distributor" width="30%">
         <br><br>
-        <strong><p id="response2"></p></strong>
-        <br>       
+        <strong><p id="response2"></p></strong>       
         <strong><p id="response3"></p></strong>
         <p id="response"></p>
-        <br>
-        <strong><p id="response4"></p></strong>
-        <p id="response5"></p>
-        <p id="response6"></p>
-        <p id="response7"></p>
+        
                 <p>
                 <script>
                   const wax = new waxjs.WaxJS({
@@ -140,15 +133,9 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
                         blocksBehind: 3,
                         expireSeconds: 30
                       });
-                      document.getElementById('response2').append('You are register, Welcome :)');
-                      document.getElementById('response3').append('Direct link:');
-                      document.getElementById('response').append(`https://waxrush.com/?ref=${wax.userAccount}`);
-                      document.getElementById('response4').append('iFrame:');
-                      
-
-                      document.getElementById('response5').append('<!-- waxrush html code start -->');
-                      document.getElementById('response6').append(`<iframe src="https://waxrush.com/?ref=${wax.userAccount}" height="500px" width="100%" ></iframe>`);
-                      document.getElementById('response7').append('<!-- waxrush html code start -->');
+                      document.getElementById('response2').append('Welcome :)');
+                      document.getElementById('response3').append('Your affiliate direct link:');
+                      document.getElementById('response').append(`https://remixworlds.com/affiliate.php?a=${wax.userAccount}`);
 
                       // document.getElementById('response').append(wax.userAccount);
 
