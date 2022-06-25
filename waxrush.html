@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="fr">
+<html class="no-js" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
@@ -82,7 +82,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
         <br>
         <p><img id="login" onclick=login() src="files/login.png" alt="NFT Distributor" width="30%"></p>
           <br>
-          <p id="current"></p>
+          <p id="current"></p><p id="current2"></p>
           <input hidden="hidden" id="wallet">
         <br>
         <p>2 - Sign this contract to register in the affiliate database (<a href="https://wax.bloks.io/account/freecitygamx?loadContract=true&tab=Tables&account=freecitygamx" target="_blank">smart contract</a>) and generate your html iframe code to use.
@@ -115,7 +115,7 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                   async function login() {
                     try {
                       const userAccount = await wax.login();
-                      document.getElementById('wallet').value = userAccount;
+                      document.getElementById('wallet').value = wax.userAccount;
 
                       await getCurrentMessage();
                     } catch(e) {
@@ -177,17 +177,17 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxrushrush1';
                     const res = await wax.rpc.get_table_rows({
                       json: true,
                       code: 'freecitygamx',
-   scope: 'freecitygamx',
-   table: 'users',
-   lower_bound: wax.userAccount,
-   upper_bound: wax.userAccount,
+                      scope: 'freecitygamx',
+                      table: 'users',
+                      lower_bound: wax.userAccount,
+                      upper_bound: wax.userAccount,
                     });
                 
                     
                     const message = res.rows[0] ? res.rows[0].message : `Wallet: ${wax.userAccount}`;
                     document.getElementById('current').textContent = message;
                     
-                    //document.getElementById('current2').append = `current2`;
+                    document.getElementById('current2').append = `${wax.userAccount}`;
 
                     // document.getElementById('current').textContent = ('<p>');
                     // document.getElementById('current').textContent = ('working');
