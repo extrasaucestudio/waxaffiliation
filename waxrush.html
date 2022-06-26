@@ -11,11 +11,26 @@
     <link href="files/style.min.css" rel="stylesheet" type="text/css">
         <link href="files/sso-theme.min.css" rel="stylesheet" type="text/css">
         <script src='waxjs.js'></script>
-       
-        
-
+      
+<!-- ? -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="files/main.css">
+<!-- notification -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Open Sans';
+        }
+    </style>
+<link href="files/notification/light-theme.min.css" rel="stylesheet">
+<link href="files/notification/dark-theme.min.css" rel="stylesheet">
+<link href="files/notification/colored-theme.min.css" rel="stylesheet">
+<script type="text/javascript" src="files/notification/growl-notification.min.js"></script>
+
+
+ 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVSCP5XW3H"></script>
 <script>
@@ -80,7 +95,11 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
         <br>
         <p><img id="login" onclick=login() src="files/waxaff-login.png" alt="NFT Distributor" width="20%"></p>
           
-          <p id="current"></p><p id="current2"></p>
+          <p id="current"></p>
+          
+          <p hidden="hidden" id="current2"></p>
+         
+
           <input hidden="hidden" id="wallet">
         <br>
         <p>2 - Sign this contract to register in the affiliate database (<a href="https://wax.bloks.io/account/freecitygamx?loadContract=true&tab=Tables&account=freecitygamx" target="_blank">smart contract</a>) and generate your html iframe code to use.
@@ -97,6 +116,8 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
         <p id="response5"></p>
         <p id="response6"></p>
         <p id="response7"></p>
+        
+
                 <p>
                 <script>
                   const wax = new waxjs.WaxJS({
@@ -107,6 +128,10 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
                     try {
                       const userAccount = await wax.login();
                       document.getElementById('wallet').value = wax.userAccount;
+                      
+                      GrowlNotification.notify({
+                    description: `Wallet: ${wax.userAccount}`,
+                    }); // or (new GrowlNotification(options)).show();
 
                       await getCurrentMessage();
                     } catch(e) {
@@ -117,9 +142,11 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
                   async function sign() {
                     if(!wax.api) {
                       return document.getElementById('response').append('* Login first *');
+                      
                     }
                 
                     const wallet = document.getElementById('wallet').value;
+
                     
                 
                     try {
@@ -164,6 +191,8 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
                     }
                   }
                 
+                  
+
                   async function getCurrentMessage() {
                     const res = await wax.rpc.get_table_rows({
                       json: true,
@@ -174,19 +203,26 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
                       upper_bound: wax.userAccount,
                     });
                 
-                    
+                   
+
                     const message = res.rows[0] ? res.rows[0].message : `Wallet: ${wax.userAccount}`;
                     document.getElementById('current').textContent = message;
                     
                     // document.getElementById('current2').append(wax.userAccount);
                     document.getElementById('current2').textContent = (wax.userAccount);
+                    //document.getElementById('options').textContent = (wax.userAccount);
+                    //document.getElementById('options').textContent = (new GrowlNotification(options)).show();
+                    
+                    
 
                     // document.getElementById('current').textContent = ('<p>');
                     // document.getElementById('current').textContent = ('working');
                     // document.getElementById('current').textContent = ('</p>');
                     
                   }
+
                 
+
                   // set a random value to the initial message value
                   document.getElementById('message').value = Math.random().toString(36).substring(2);
                 
@@ -195,8 +231,16 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
         </section>
       <br>
 
-        
+       <!--
+        <script>
+      GrowlNotification.notify({
+        description: 'I am a default notificationxxx.',
+      }); // or (new GrowlNotification(options)).show();
+      </script>
+       --> 
+
        
+      
 
         <footer align="center">
           <p>
