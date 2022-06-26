@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
+    <title>WaxAffiliation.io</title>
+
+    <link rel="preload" href="files/Site.min.css" as="style">
+    <link rel="reload" href="files/style.min.css" as="style">
+    <link rel="preload" href="files/sso-theme.min.css" as="style">
+    <link href="files/Site.min.css" rel="stylesheet" type="text/css">
+    <link href="files/style.min.css" rel="stylesheet" type="text/css">
+    <link href="files/sso-theme.min.css" rel="stylesheet" type="text/css">
+    <script src='waxjs.js'></script>
+
+
+
+
+
+
+
+	<link rel="shortcut icon" href="files/favicon/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="files/favicon/icon-16.png" sizes="16x16" />
+	<link rel="icon" href="files/favicon/icon-32.png" sizes="32x32" />
+	<link rel="icon" href="files/favicon/icon-48.png" sizes="48x48" />
+	<link rel="icon" href="files/favicon/icon-96.png" sizes="96x96" />
+	<link rel="icon" href="files/favicon/icon-144.png" sizes="144x144" />
+	<!-- end meta block -->
+	<script type="text/javascript" src="files/codebase/suite.js"></script>
+	<link rel="stylesheet" href="files/codebase/suite.css">
+	<link rel="stylesheet" href="files/index.css">
+	<!-- custom sample head -->
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MVSCP5XW3H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MVSCP5XW3H');
+</script>
+
+<script>
+var url_string = window.location.href;
+var url = new URL(url_string);
+var ref = url.searchParams.get("ref") || 'kkere.wam';
+const affiliate_wallet = url.searchParams.get("ref") || 'kkere.wam';
+</script>
+
+<script src='files/eosjs/dist-web/externals.min.js'></script>
+<script src='files/eosjs/dist-web/eosjs-api.min.js'></script>
+<script src='files/eosjs/dist-web/eosjs-jsonrpc.min.js'></script>
+<script src='files/eosjs/dist-web/eosjs-jssig.min.js'></script>
+</head>
+<body style="background-image: url('files/bg8.jpg');" align="center">
+<center>
+    
+    
+  <script>
+    let pre = document.getElementsByTagName('pre')[0];
+    const defaultPrivateKey = "5J44zzZ5AD66c9AJufaebB1W9gAdnS3A9ADHcnHyMKhC41SH6TD"; // remixplayer1
+    const rpc = new eosjs_jsonrpc.JsonRpc('https://wax.greymass.com');
+    const signatureProvider = new eosjs_jssig.JsSignatureProvider([defaultPrivateKey]);
+    const api = new eosjs_api.Api({ rpc, signatureProvider });
+  
+    (async () => {
+      try {
+        const result = await wax.api.transact({
+                        actions: [{
+                          account: 'atomicmarket',
+                          name: 'annoncesale',
+                          authorization: [{
+                            actor: 'remixplayer1',
+                            permission: 'active',
+                          }],
+                          data: {
+                            asset_ids: '1099678735342',
+                            listing_price: '1.00000000 WAX',
+                            maker_marketplace:'',
+                            seller: remixplayer1,
+                            settlement_symbol: 8,WAX                        
+                          },
+                        },
+{
+                          account: 'atomicassets',
+                          name: 'createoffer',
+                          authorization: [{
+                            actor: 'remixplayer1',
+                            permission: 'active',
+                          }],
+                          data: {
+                            sender_asset_ids: '1099678735342',
+                            sender: 'remixplayer1',
+                            recipient_asset_ids: '',
+                            recipient: 'atomicmarket',
+                            memo: 'sale',
+                          },
+                        }]
+                      }, {
+                        blocksBehind: 3,
+                        expireSeconds: 30
+                      });
+        pre.textContent += '\n\nTransaction pushed!\n\n' + JSON.stringify(result, null, 2);
+      } catch (e) {
+        pre.textContent = '\nCaught exception: ' + e;
+        if (e instanceof eosjs_jsonrpc.RpcError)
+          pre.textContent += '\n\n' + JSON.stringify(e.json, null, 2);
+      }
+    })();
+  </script>
+  
+
+
+<br>
+  <script>
+    document.write('<a href="https://wax.bloks.io/account/');
+    document.write(ref);
+    document.write('" target="_blank">');
+    document.write(ref);
+    document.write('</a>');
+    </script>
+    </center>
+</body></html>
