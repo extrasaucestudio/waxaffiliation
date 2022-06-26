@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
+    <title>WaxAffiliation.io - WaxRush.com</title>
+    <link rel="preload" href="files/Site.min.css" as="style">
+    <link rel="reload" href="files/style.min.css" as="style">
+        <link rel="preload" href="files/sso-theme.min.css" as="style">
+    <link href="files/Site.min.css" rel="stylesheet" type="text/css">
+    <link href="files/style.min.css" rel="stylesheet" type="text/css">
+        <link href="files/sso-theme.min.css" rel="stylesheet" type="text/css">
+        <script src='waxjs.js'></script>
+      
+<!-- ? -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="files/main.css">
+<!-- notification -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Open Sans';
+        }
+    </style>
+<link href="files/notification/light-theme.min.css" rel="stylesheet">
+<link href="files/notification/dark-theme.min.css" rel="stylesheet">
+<link href="files/notification/colored-theme.min.css" rel="stylesheet">
+<script type="text/javascript" src="files/notification/growl-notification.min.js"></script>
+
+
+ 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MVSCP5XW3H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MVSCP5XW3H');
+</script>
+
+<script>
+var url_string = window.location.href;
+var url = new URL(url_string);
+var ref = url.searchParams.get("ref") || 'waxaffiliate';
+const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
+</script>
+
+
+</head>
+<body style="background-image: url('files/bg8.jpg');" align="center">
+<center>
+    <div id="container">
+      <br><img src="files/waxaff-logo.png" alt="WaxAffiliation" width="25%"><br>
+      <p>Affiliate Program Based on WAX Game</p>
+      
+        <script>
+        document.write('<a href="affiliation.html?ref=');
+        document.write(ref);
+        document.write('">Home</a>');
+        </script> - 
+        <script>
+          document.write('<a href="affiliate.html?ref=');
+          document.write(ref);
+          document.write('">Affiliates Listing</a>');
+          </script>
+      
+      
+          <br><br>
+
+          <section id="main">
+              
+            <img src="files/wax.svg" alt="WAX Login" width="50px" height="50px">
+            <p>
+              WaxRush is a mini distributor tool from RemixWorlds and that provides random NFTs for 1 WAX. This tool is easily 
+              embedable with iframe or direct link in other website/dApp or your streaming profil like Twitch for example. 
+              <br><br>
+              You will earn 5% of all WAX spended by users playing from iframe or direct link. 
+              <br><br>
+              Your share is sent to your wallet in real time for each NFT purchased and each future NFT 
+              purchased by these players.
+              <br><br>
+
+            <strong>See an example of the result</strong>
+            <iframe src="https://waxrush.com/?ref=waxaffiliate" height="500" width="100%" ></iframe>
+            
+        </p>
+          
+          
+        <br>
+
+        <p>1 - Login with your WAX wallet.</p>
+        <br>
+        <p><img id="login" onclick=login() src="files/waxaff-login.png" alt="NFT Distributor" width="20%"></p>
+          
+          <p id="current"></p>
+          <p id="current2"></p>
+          <p id="options"></p>
+         
+
+          <input hidden="hidden" id="wallet">
+        <br>
+        <p>2 - Sign this contract to register in the affiliate database (<a href="https://wax.bloks.io/account/freecitygamx?loadContract=true&tab=Tables&account=freecitygamx" target="_blank">smart contract</a>) and generate your html iframe code to use.
+      </p>
+        <br>
+        <img id="sign" onclick=sign() src="files/waxaff-generate.png" alt="NFT Distributor" width="30%">
+        <br><br>
+        <strong><p id="response2"></p></strong>
+        <br>       
+        <strong><p id="response3"></p></strong>
+        <p id="response"></p>
+        <br>
+        <strong><p id="response4"></p></strong>
+        <p id="response5"></p>
+        <p id="response6"></p>
+        <p id="response7"></p>
+                <p>
+                <script>
+                  const wax = new waxjs.WaxJS({
+                    rpcEndpoint: 'https://wax.greymass.com'
+                  });
+                
+                  async function login() {
+                    try {
+                      const userAccount = await wax.login();
+                      document.getElementById('wallet').value = wax.userAccount;
+
+                      await getCurrentMessage();
+                    } catch(e) {
+                      document.getElementById('response').append(e.message);
+                    }
+                  }
+                
+                  async function sign() {
+                    if(!wax.api) {
+                      return document.getElementById('response').append('* Login first *');
+                    }
+                
+                    const wallet = document.getElementById('wallet').value;
+
+                    
+                    
+                
+                    try {
+                      const result = await wax.api.transact({
+                        actions: [{
+                          account: 'freecitygamx',
+                          name: 'adduseraff',
+                          authorization: [{
+                            actor: wax.userAccount,
+                            permission: 'active',
+                          }],
+                          data: {
+                            wallet,
+                            affiliate_wallet: ref,
+                          },
+                        }]
+                      }, {
+                        blocksBehind: 3,
+                        expireSeconds: 30
+                      });
+                      document.getElementById('response2').append('You are register, Welcome :)');
+                      document.getElementById('response3').append('Direct link:');
+                      document.getElementById('response').append(`https://waxrush.com/?ref=${wax.userAccount}`);
+                      document.getElementById('response4').append('iFrame:');
+                      
+
+                      document.getElementById('response5').append('<!-- waxrush html code start -->');
+                      document.getElementById('response6').append(`<iframe src="https://waxrush.com/?ref=${wax.userAccount}" height="500px" width="100%" ></iframe>`);
+                      document.getElementById('response7').append('<!-- waxrush html code start -->');
+
+                      // document.getElementById('response').append(wax.userAccount);
+
+                      // document.createElement("<div id='myID'> my Text </div>");
+                      // document.body.insertBefore(elem,document.body.childNodes[0]);
+
+                      // document.getElementById('response').append(JSON.stringify(result));
+                      // console.log(result); 
+                      await new Promise(resolve => setTimeout(resolve, 1000));
+                      await getCurrentMessage();
+                    } catch(e) {
+                      document.getElementById('response').append('* Expired Transaction *');
+                    }
+                  }
+                
+                  async function getCurrentMessage() {
+                    const res = await wax.rpc.get_table_rows({
+                      json: true,
+                      code: 'freecitygamx',
+                      scope: 'freecitygamx',
+                      table: 'users',
+                      lower_bound: wax.userAccount,
+                      upper_bound: wax.userAccount,
+                    });
+                
+                    GrowlNotification.notify({
+                    description: `Wallet: ${wax.userAccount}`,
+                    }); // or (new GrowlNotification(options)).show();
+
+                    const message = res.rows[0] ? res.rows[0].message : `Wallet: ${wax.userAccount}`;
+                    document.getElementById('current').textContent = message;
+                    
+                    // document.getElementById('current2').append(wax.userAccount);
+                    document.getElementById('current2').textContent = (wax.userAccount);
+                    //document.getElementById('options').textContent = (wax.userAccount);
+                    document.getElementById('options').textContent = (new GrowlNotification(options)).show();
+                    
+
+                    // document.getElementById('current').textContent = ('<p>');
+                    // document.getElementById('current').textContent = ('working');
+                    // document.getElementById('current').textContent = ('</p>');
+                    
+                  }
+                
+                  // set a random value to the initial message value
+                  document.getElementById('message').value = Math.random().toString(36).substring(2);
+                
+                </script>
+        </p>
+        </section>
+      <br>
+
+       <!--
+        <script>
+      GrowlNotification.notify({
+        description: 'I am a default notificationxxx.',
+      }); // or (new GrowlNotification(options)).show();
+      </script>
+       --> 
+
+       
+      
+
+        <footer align="center">
+          <p>
+          © WaxAffiliation.io -  
+            <script>
+            document.write('<a href="https://wax.bloks.io/account/');
+            document.write(ref);
+            document.write('" target="_blank">');
+            document.write(ref);
+            document.write('</a>');
+            </script>
+            </p>
+        </footer>
+    </div></div>
+    </center>
+</body></html>
