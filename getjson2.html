@@ -8,15 +8,15 @@
 <script>
 function aload () {
   // (B1) AJAX LOAD JSON DATA
-  fetch("https://atomic.hivebp.io/atomicassets/v1/transfers?account=freecitygamx&page=1&limit=100&order=desc&sort=created")
+  fetch("https://atomic.hivebp.io/atomicassets/v1/assets/1099678735342/stats")
   .then(res=>res.json())
   .then((data) => {
     // (B2) BUILD HTML TABLE WITH THE GIVEN DATA
     var table = "<table>";
     for (let person of data) {
       table += "<tr>";
-      table += "<td>" + collection_name + "</td>";
-      table += "<td>" + contract + "</td>";
+      table += "<td>" + person.symbol + "</td>";
+      table += "<td>" + person.price + "</td>";
       table += "</tr>";
     }
     table += "</table>";

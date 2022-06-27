@@ -117,9 +117,13 @@ const affiliate_wallet = url.searchParams.get("ref") || 'waxaffiliate';
                       const userAccount = await wax.login();
                       document.getElementById('wallet').value = wax.userAccount;
 
-                    GrowlNotification.notify({
+                      GrowlNotification.notify({
+                    title: 'Well Done!',
                     description: `Wallet: ${wax.userAccount}`,
-                    }); // or (new GrowlNotification(options)).show();
+                    type: 'success',
+                    position: 'top-center',
+                    closeTimeout: 0
+                    });
 
                       await getCurrentMessage();
                     } catch(e) {
